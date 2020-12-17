@@ -1,0 +1,78 @@
+{
+  "name": "filerobot-image-editor",
+  "version": "3.10.1",
+  "main": "dist/index.js",
+  "description": "Edit, resize, and filter any image!",
+  "author": "scaleflex",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scaleflex/filerobot-image-editor"
+  },
+  "homepage": "https://github.com/scaleflex/filerobot-image-editor#readme",
+  "keywords": [
+    "image editor",
+    "crop",
+    "resize"
+  ],
+  "dependencies": {
+    "cropperjs": "^1.5.5",
+    "image-type": "^4.1.0",
+    "js-sha1": "^0.6.0",
+    "moment": "^2.25.3",
+    "react-load-script": "0.0.6",
+    "react-loadable": "^5.5.0",
+    "styled-components": "^4.4.0",
+    "throttle-debounce": "^2.1.0",
+    "uuid": "^3.4.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/node": "^7.8.7",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-export-default-from": "^7.8.3",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-syntax-jsx": "^7.8.3",
+    "@babel/plugin-transform-arrow-functions": "^7.8.3",
+    "@babel/plugin-transform-object-assign": "^7.8.3",
+    "@babel/plugin-transform-react-jsx": "^7.9.4",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "ajv": "^6.12.2",
+    "ajv-keywords": "^3.4.1",
+    "babel-loader": "^8.1.0",
+    "css-loader": "0.28.7",
+    "gh-pages": "^2.2.0",
+    "highlight.js": "9.13.1",
+    "html-webpack-plugin": "^3.2.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.10.1",
+    "react-hot-loader": "^3.1.3",
+    "style-loader": "0.19.0",
+    "webpack": "^4.41.0",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2"
+  },
+  "peerDependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "scripts": {
+    "start-demo-js": "webpack-dev-server --mode development --config config/webpack.demo-js-config.js",
+    "start-demo-react": "webpack-dev-server --mode development --config config/webpack.demo-react-config.js",
+    "clean-demo-js": "rm -rf examples/js/dist",
+    "build-demo-js": "npm run clean-demo-js && webpack --mode production --config config/webpack.demo-js-config.js",
+    "build-demo-js-latest": "npm run clean-demo-js && webpack --mode production --config config/webpack.demo-js-config.js",
+    "clean-demo-react": "rm -rf examples/react/dist",
+    "build-demo-react": "npm run clean-demo-react && webpack --mode production --config config/webpack.demo-react-config.js",
+    "clean-build": "rm -rf build",
+    "build-new": "webpack --mode production --config config/webpack.js-config.js",
+    "build-latest": "webpack --mode production --config config/webpack.js-config.js --env.latest",
+    "build": "npm run clean-build && npm run build-new && npm run build-latest",
+    "clean-dist": "rm -rf dist",
+    "dist": "npm run clean-dist && npx babel projects/react --out-dir dist --copy-files",
+    "deploy": "gh-pages -d examples/js/dist",
+    "publish-demo": "npm run build-demo-js && npm run deploy"
+  }
+}
